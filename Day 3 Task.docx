@@ -1,0 +1,98 @@
+Q.no:1. For the given JSON iterate over all for loops (for, for in, for of, forEach).
+for loop:
+        const req = new XMLHttpRequest();
+            req.addEventListener('load',handleData)
+            // req.onload = (res)=>{
+            //     console.log(JSON.parse(res.srcElement.responseText))
+            // }
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+        function handleData(){
+                let data = JSON.parse(this.responseText)
+                console.log(data) 
+                  for(let i=0;i<data.length;i++)
+                   {
+                     console.log(data[i].region)
+                 }
+        }   
+
+for in loop:
+        const req = new XMLHttpRequest();
+            req.addEventListener('load',handleData)
+            // req.onload = (res)=>{
+            //     console.log(JSON.parse(res.srcElement.responseText))
+            // }
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+        function handleData(){
+                let data = JSON.parse(this.responseText)
+                console.log(data) 
+                  for (i in data)
+                {
+                    console.log(data[i].name.common)
+                }
+        } 
+
+for of loop:
+        const req = new XMLHttpRequest();
+            req.addEventListener('load',handleData)
+            // req.onload = (res)=>{
+            //     console.log(JSON.parse(res.srcElement.responseText))
+            // }
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+        function handleData(){
+                let data = JSON.parse(this.responseText)
+                console.log(data) 
+                  for (i of data)
+                {
+                    console.log(i.capital)
+                }
+        } 
+
+forEach:
+       let students = ['Abbas', 'Vicky', 'Arun'];
+
+       // using forEach
+         students.forEach(myFunction);
+
+        function myFunction(item) {
+
+        console.log(item);
+        }
+
+Q.no:2. Create your own resume data in JSON format.
+
+let resume = 
+   {
+        name:"Baskar",
+        email:"baskaryadav10@gmail.com",
+        mobile:["7200308286"],
+        age:22,
+        address:{
+                 no:"439",
+                 street:"Pillaiyar Kovil Street",
+                 village:"Keel Vadugan Kuttai Village",
+                 city:"Vellore",
+                 state:"Tamil Nadu",
+               },
+        nationality:"Indian",
+        gender:"Male",
+        martialstatus:"Unmarried",
+        qualification:{
+                       sslc:"10th",
+                       hsc:"12th",
+                       ug:"B.E-Mechanical"},
+        mothertongue:"Tamil",
+        knownlanguages:"English"
+    }
+    for (let i=0;i<=resume.length;i++)
+        {
+            if(resume[i]["name"]==="Baskar")
+                {
+                    console.log(resume[i])
+                }
+        }
+
+    console.log(resume)
+ 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3 - Task</title>
+</head>
+<body>
+    <script>
+        const req = new XMLHttpRequest();
+            req.addEventListener('load',handleData)
+            // req.onload = (res)=>{
+            //     console.log(JSON.parse(res.srcElement.responseText))
+            // }
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+        function handleData(){
+                let data = JSON.parse(this.responseText)
+                console.log(data) 
+                  //for(let i=0;i<data.length;i++)
+                   //{
+                     //console.log(data[i].region)
+                 //}
+                
+                //for (i in data)
+                //{
+                //    console.log(data[i].name.common)
+                //}
+
+                //for (i of data)
+                //{
+                //   console.log(i.capital)
+                //}
+                
+            }  
+    </script>
+</body>
+</html>
