@@ -1,0 +1,85 @@
+Q.no.1. How to compare two JSON have the same properties without order?
+    a. let obj1 = {name: "Person 1",age:5};
+    b. let obj2 = {age:5, name:"Person 1"};
+
+Solution:
+
+1st method:
+ 
+ let obj1 = {name: "Person 1",age:5};
+ let obj2 = {age:5, name:"Person 1"};
+
+   let flag = true
+  for(let e in obj1)
+    {
+        if(obj1[e]!==obj2[e])
+           {
+            flag = false;
+            break
+           }
+    }
+        flag?console.log("Equal"):console.log("Not Equal")
+
+2nd method:
+ 
+ let obj1 = {name: "Person 1",age:5};
+ let obj2 = {age:5, name:"Person 1"};
+ 
+  let keys1 = Object.keys(obj1)
+  let keys2 = Object.keys(obj2)
+
+ let flag = true
+ if(keys1.length===keys2.length)
+ {
+     for(let e of keys1)
+     {
+         if(obj1[e]!==obj2[e])
+         {
+             flag=false
+             break;
+         }
+     }
+ }
+ else
+     flag = false
+ flag?console.log("Equal"):console.log("Not Equal")
+
+
+Q.no:2. Use the rest countries' API URL->https://restcountries.com/v3.1/all and display the all country flags in the console.
+
+        const req = new XMLHttpRequest();
+            req.addEventListener('load',handleData)
+            // req.onload = (res)=>{
+            //     console.log(JSON.parse(res.srcElement.responseText))
+            // }
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+        function handleData(){
+                let data = JSON.parse(this.responseText)
+                console.log(data) 
+                
+                for(let i=0;i<data.length;i++)
+                {
+                     console.log(data[i].flags)
+                 }
+        }
+
+Q.no:3. Use the same rest countries and print all countries names,regions, sub-region and populations.
+
+        const req = new XMLHttpRequest();
+            req.addEventListener('load',handleData)
+            // req.onload = (res)=>{
+            //     console.log(JSON.parse(res.srcElement.responseText))
+            // }
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+        function handleData(){
+                let data = JSON.parse(this.responseText)
+                console.log(data) 
+                
+                for (i of data)
+                {
+                   console.log(i.name.common,i.population,i.region,i.subregion)
+                }
+                
+            }  
