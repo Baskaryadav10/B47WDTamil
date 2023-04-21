@@ -28,11 +28,21 @@
                 //    console.log(data[i].name.common)
                 //}
 
-                for (i of data)
-                {
-                   console.log(i.name.common,i.population,i.region,i.subregion)
-                }
+                //for (i of data)
+                //{
+                   //console.log(i.name.common,i.population,i.region,i.subregion)
+                //}
                 
+                //let country = data.map((e) => `${e.region},${e.population}`)
+                //console.log(country)
+
+                let country = data.filter((e) => {
+                    if (e.continents[0]=='Asia')
+                    return true
+                    else
+                    return false
+                })
+                console.log(country)
             }  
     </script>
 </body>
